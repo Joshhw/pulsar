@@ -645,7 +645,7 @@ public class FunctionsBase extends AdminResource implements Supplier<WorkerServi
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public void uploadFunction(final @FormDataParam("data") InputStream uploadedInputStream,
                                final @FormDataParam("path") String path) {
-        functions.uploadFunction(uploadedInputStream, path, clientAppId());
+        functions.uploadFunction(uploadedInputStream, path, clientAppId(), clientAuthData());
     }
 
     @GET

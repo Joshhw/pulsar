@@ -60,6 +60,19 @@ public interface AuthorizationProvider extends Closeable {
     }
 
     /**
+     *
+     * @param role the role to check
+     * @param authenticationData authentication data related to the role
+     * @return a CompletableFuture containing a boolean in which true means the role is a super user
+     * and false if it is not
+     */
+    default CompletableFuture<Boolean> isSuperUser(String role, AuthenticationDataSource authenticationData) {
+        return FutureUtil.failedFuture(new IllegalStateException("isSuperUser is not supported by the Authorization" +
+                                " provider you are using.",));
+
+    }
+
+    /**
      * @deprecated Use method {@link #isSuperUser(String, AuthenticationDataSource, ServiceConfiguration)}
      * Check if specified role is a super user
      * @param role the role to check

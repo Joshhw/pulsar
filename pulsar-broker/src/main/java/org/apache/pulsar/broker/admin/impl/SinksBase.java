@@ -514,6 +514,6 @@ public class SinksBase extends AdminResource implements Supplier<WorkerService> 
     })
     @Path("/reloadBuiltInSinks")
     public void reloadSinks() {
-        sink.reloadConnectors(clientAppId());
+        sink.reloadConnectors(clientAppId(), clientAuthData());
     }
 }
